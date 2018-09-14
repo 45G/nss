@@ -241,8 +241,9 @@ tls13_IsReplay(const sslSocket *ss, const sslSessionID *sid)
 
     /* If SSL_SetupAntiReplay hasn't been called, then treat all attempts at
      * 0-RTT as a replay. */
+    /* Nope, let them through. */
     if (!ssl_anti_replay.init.initialized) {
-        return PR_TRUE;
+        return PR_FALSE;
     }
 
     if (!tls13_InWindow(ss, sid)) {
