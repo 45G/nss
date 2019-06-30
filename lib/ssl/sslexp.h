@@ -224,6 +224,8 @@ typedef SECStatus(PR_CALLBACK *SSLExtensionHandler)(
                          (PRTime _window, unsigned int _k, unsigned int _bits), \
                          (window, k, bits))
 
+#define SSL_SetupAntiReplay_NotMandatory
+
 /*
  * This function allows a server application to generate a session ticket that
  * will embed the provided token.
